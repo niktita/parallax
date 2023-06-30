@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: releway_r;
+    src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+    font-family: releway_b;
+    src: url(../fonts/raleway-black.woff2);
+
+}
+:root{
+    --index: calc(1vw + 1vh);
+    --text:#e7e7e0;
+}
+body{
+    background-color: #010101;
+    font-family: releway_r, sans-serif;
+    line-height: 1.55;
+
+}
+.header{
+    position: relative;
+}
+.layers {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+}
+.layer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    background-position: center;
+    will-change: transform ;
+    z-index: 2;
+    transition: transform 0.75 cubic-bezier(0.075, 0.5, 0, 1);
+}
+.layers_base{
+    transform: translate3d(0, calc(var(--scrollTop)/1.6), 0);
+    z-index: 0;
+    background-image: url("../img/layer-base.png"); 
+}
+.layers_middle{
+    transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
+    background-image: url("../img/layer-middle.png");
+
+}
+.layers_front{
+    transform: translate3d(0, calc(var(--scrollTop)/5.7), 0);
+    background-image: url("../img/layer-front.png");
+}
+.header::after{
+    content: '';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url("../img/ground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -4.5);
+}
+.layers_header{
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop)/2), 0); 
+    transition: transform 0.75 cubic-bezier(0.075, 0.5, 0, 1);
+    will-change: transform;
+    
+    color: var(--text);
+    font-weight: 900;
+    text-shadow: 0 0 15px #9d822b;
+    text-align: center;
+
+
+}
+.layers_header_caption{
+    font-size: calc(var(--index) / 0.975);
+}
+.layers_header_title{
+    font-size: calc(var(--index) * 2.75); 
+     
+}
+.article{
+    min-height: 100vh ;
+    background-image: url("../img/dungeon.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    top: -1px;
+    z-index: 10;
+    align-items: center;
+}
+.content{
+    will-change: transform;
+
+}
+h2{
+    text-transform: uppercase;
+    text-shadow: 0 0 15px #9d822b;
+    font-size: 35px;
+
+}
+.article{
+    text-shadow: 0 0 10px #9d822b;
+    font-size: 25px;
+
+}
